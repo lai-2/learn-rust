@@ -38,7 +38,6 @@ fn main() {
 
     let operator = tokens[1];
 
-
     let result = match operator {
         "+" => add(num1, num2),
         "-" => subtract(num1, num2),
@@ -50,7 +49,10 @@ fn main() {
         }
     };
 
-    println!("Result: {:.2} {:} {:.2} = {:.2}", num1, operator, num2, result);
+    println!(
+        "Result: {:.2} {:} {:.2} = {:.2}",
+        num1, operator, num2, result
+    );
 }
 
 fn add(num1: f64, num2: f64) -> f64 {

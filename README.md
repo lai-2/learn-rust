@@ -1,10 +1,10 @@
 # Course
 [100 Days of Rust Development: Build a Project Every Day(AI)] (https://www.udemy.com/course/rust-programming-bootcamp)
 
-# Project 1
+# Project 1: Hello world
 [folder](./hello_rust/)
 
-# Project 2
+# Project 2: Temperator converter
 [folder](./temperator_converter)
 
 ## Parse number
@@ -53,7 +53,7 @@ if choice == 1 {
 }
 ```
 
-# Project 3
+# Project 3: Simple Calculator
 [folder](./simple_calculator)
 
 ## String to list
@@ -96,4 +96,55 @@ fn divide(num1: f64, num2: f64) -> f64 {
     }
 
     return num1 / num2;
+}
+```
+
+# Project 4: Guessing Game
+## Install package in Rust
+1. Open file `Cargo.toml`, add line:
+    ```toml
+    [dependencies]
+    rand = "0.8"
+    ```
+2. Install package:
+    ```sh
+    cargo build
+    ```
+
+## Random a number
+```rs
+use rand::Rng;
+let secret_number = rand::thread_rng().gen_range(1..=100);
+```
+
+## Loop
+```rs
+loop {
+    println!("Please input your guess: ");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read input");
+
+    let guess: u32 = match guess.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a number.");
+            continue;
+        }
+    };
+
+    println!("You guessed: {}", guess);
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too small! Try again."),
+        Ordering::Greater => println!("Too big! Try again."),
+        Ordering::Equal => {
+            println!("CONGRATULATIONS! You guessed the number!");
+            break;
+        }
+    }
+}
 ```

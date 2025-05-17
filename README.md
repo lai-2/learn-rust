@@ -1,5 +1,5 @@
 # Course
-[100 Days of Rust Development: Build a Project Every Day(AI)] (https://www.udemy.com/course/rust-programming-bootcamp)
+[100 Days of Rust Development: Build a Project Every Day(AI)](https://www.udemy.com/course/rust-programming-bootcamp)
 
 # Project 1: Hello world
 [folder](./hello_rust/)
@@ -42,7 +42,7 @@ let temp: f64 = match temp.trim().parse() {
 };
 ```
 
-## IF ELSE
+## if else
 ```rs
 if choice == 1 {
     celsius_to_fahrenheit();
@@ -73,7 +73,7 @@ if tokens.len() != 3 {
 }
 ```
 
-## Switch case
+## switch case
 ```rs
 let result = match operator {
     "+" => add(num1, num2),
@@ -148,4 +148,35 @@ loop {
         }
     }
 }
+```
+
+# Project 5: Word counter
+[folder](./word_counter)
+
+## Collect args from command-line
+```rs
+use std::env;
+
+    let args: Vec<String> = env::args().collect();
+```
+
+## Read file content
+```rs
+use std::fs::File;
+use std::io::{Read};
+
+    // Read the file contents
+    let mut file = match File::open(file_path) {
+        Ok(file) => file,
+        Err(err) => {
+            println!("Error opening file: {}", err);
+            return;
+        }
+    };
+
+    let mut contents = String::new();
+    if let Err(err) = file.read_to_string(&mut contents) {
+        println!("Error reading file: {}", err);
+        return;
+    }
 ```

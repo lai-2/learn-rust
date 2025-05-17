@@ -10,6 +10,8 @@
 ## Parse number
 
 ```rs
+use std::io;
+
 println!("Please select an option (1 or 2): ");
 let mut choice = String::new();
 io::stdin()

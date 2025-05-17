@@ -180,3 +180,34 @@ use std::io::{Read};
         return;
     }
 ```
+
+# Project 6: BMI Calculator
+[folder](./bmi_calculator/)
+
+## read float number
+```rs
+
+fn main() {
+    println!("Enter your weight in kilograms (kg): ");
+
+    let weight = match get_input_as_f64() {
+        Some(value) => value,
+        None => {
+            eprintln!("Invalid input for weight. Please enter a valid number.");
+            return;
+        }
+    };
+}
+
+fn get_input_as_f64() -> Option<f64> {
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input.");
+
+    match input.trim().parse::<f64>() {
+        Ok(value) => Some(value),
+        Err(_) => None,
+    }
+}
+```

@@ -1,3 +1,6 @@
+# Course
+[100 Days of Rust Development: Build a Project Every Day(AI)] (https://www.udemy.com/course/rust-programming-bootcamp)
+
 # Project 1
 [folder](./hello_rust/)
 
@@ -48,4 +51,49 @@ if choice == 1 {
 } else {
     println!("invalid choice, please select 1 or 2.");
 }
+```
+
+# Project 3
+[folder](./simple_calculator)
+
+## String to list
+```rs
+let mut input = String::new();
+
+io::stdin()
+    .read_line(&mut input)
+    .expect("Failed to read input.");
+
+let tokens: Vec<&str> = input.trim().split_whitespace().collect();
+
+// get length of list
+if tokens.len() != 3 {
+    println!("Invalid input, please follow the format: <number> <operator> <number>");
+    return;
+}
+```
+
+## Switch case
+```rs
+let result = match operator {
+    "+" => add(num1, num2),
+    "-" => subtract(num1, num2),
+    "*" => multiply(num1, num2),
+    "/" => divide(num1, num2),
+    _ => {
+        println!("Invalid operator, use +,-,*,/");
+        return;
+    }
+};
+```
+
+## function and exit
+```rs
+fn divide(num1: f64, num2: f64) -> f64 {
+    if num2 == 0.0 {
+        println!("Devision by zero is not allowed");
+        std::process::exit(1);
+    }
+
+    return num1 / num2;
 ```

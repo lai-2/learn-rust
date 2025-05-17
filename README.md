@@ -100,6 +100,7 @@ fn divide(num1: f64, num2: f64) -> f64 {
 ```
 
 # Project 4: Guessing Game
+[folder](./guessing_game)
 ## Install package in Rust
 1. Open file `Cargo.toml`, add line:
     ```toml
